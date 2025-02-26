@@ -44,10 +44,10 @@ jobs:
         if: always()  # Send email even if previous steps fail
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: ${{ secrets.SMTP_HOST }}
-          server_port: ${{ secrets.SMTP_PORT }}
-          username: ${{ secrets.SMTP_USER }}
-          password: ${{ secrets.SMTP_PASSWORD }}
+          server_address: ${{ secrets.SMTP_HOST }}  # Ensure this is set
+          server_port: ${{ secrets.SMTP_PORT }}     # Ensure this is set
+          username: ${{ secrets.SMTP_USER }}       # Ensure this is set
+          password: ${{ secrets.SMTP_PASSWORD }}   # Ensure this is set
           subject: "GitHub Actions: ${{ github.workflow }} - ${{ job.status }}"
           body: |
             Workflow: ${{ github.workflow }}
@@ -56,4 +56,4 @@ jobs:
             Commit: ${{ github.sha }}
             Details: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: larg8med@gmail.com  # Replace with your email address
-          from: GitHub Actions larg8med@gmail.com  # Replace with your email address
+          from: GitHub Actions <larg8med@gmail.com>  # Replace with your email address
