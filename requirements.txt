@@ -12,3 +12,4 @@ imbalanced-learn
 mlflow
 pillow
 python-multipart
+pytest

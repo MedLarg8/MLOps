@@ -1,0 +1,10 @@
+setup.py
+ml_project.egg-info/PKG-INFO
+ml_project.egg-info/SOURCES.txt
+ml_project.egg-info/dependency_links.txt
+ml_project.egg-info/top_level.txt
+src/__init__.py
+src/model_pipeline.py
+tests/test_data_preprocessing.py
+tests/test_model_training.py
+tests/test_model_utils.py
