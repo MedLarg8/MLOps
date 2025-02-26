@@ -1,13 +1,17 @@
 """
-This module contains functions and processes related to the model pipeline for data analysis.
+This module contains functions and processes related to the model
+pipeline for data analysis.
 
-It includes steps for data preprocessing, feature selection, and model training.
-The focus is on processing the dataset, selecting relevant features, and preparing the data
+It includes steps for data preprocessing, feature selection, and 
+model training.
+The focus is on processing the dataset, selecting relevant features,
+and preparing the data
 for machine learning.
 
 Functions:
 - Data preprocessing: Cleans and prepares the dataset for modeling.
-- Feature selection: Chooses the most important features for training the model.
+- Feature selection: Chooses the most important features for 
+training the model.
 - Model training: Trains a machine learning model on the processed data.
 
 Usage:
@@ -22,7 +26,8 @@ Date: 26/02/2025
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 import seaborn as sns
@@ -37,12 +42,18 @@ def load_data(file_path):
 
 def engineer_features(data):
     """Perform feature engineering."""
-    data['Total minutes'] = (data['Total day minutes'] + data['Total eve minutes'] +
-                             data['Total night minutes'] + data['Total intl minutes'])
-    data['Total charge'] = (data['Total day charge'] + data['Total eve charge'] +
-                            data['Total night charge'] + data['Total intl charge'])
-    data['Total calls'] = (data['Total day calls'] + data['Total eve calls'] +
-                           data['Total night calls'] + data['Total intl calls'])
+    data['Total minutes'] = (data['Total day minutes'] +
+                             data['Total eve minutes'] +
+                             data['Total night minutes'] +
+                             data['Total intl minutes'])
+    data['Total charge'] = (data['Total day charge'] +
+                            data['Total eve charge'] +
+                            data['Total night charge'] +
+                            data['Total intl charge'])
+    data['Total calls'] = (data['Total day calls'] +
+                           data['Total eve calls'] +
+                           data['Total night calls'] +
+                           data['Total intl calls'])
     return data
 
 
@@ -54,7 +65,8 @@ def preprocess_data(data):
     y = data['Churn']
     # Handle categorical 'International plan' column
     label_encoder = LabelEncoder()
-    x.loc[:, 'International plan'] = label_encoder.fit_transform(x['International plan'])
+    int_plan = 'International plan'
+    x.loc[:, int_plan] = label_encoder.fit_transform(x[int_plan])
     scaler = StandardScaler()
     x_scaled = scaler.fit_transform(x)
     return x_scaled, y, scaler, label_encoder
@@ -62,7 +74,8 @@ def preprocess_data(data):
 
 def split_data(x, y, test_size=0.2, random_state=42):
     """Split the data into training and testing sets."""
-    return train_test_split(x, y, test_size=test_size, random_state=random_state)
+    return train_test_split(x, y, test_size=test_size,
+                            random_state=random_state)
 
 
 def prepare_data(file_path):
@@ -142,7 +155,7 @@ def plot_confusion_matrix(conf_matrix):
     """
     plt.figure(figsize=(8, 6))
     sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
-                xticklabels=["Not Churn","Churn"],
+                xticklabels=["Not Churn", "Churn"],
                 yticklabels=["Not Churn", "Churn"])
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
