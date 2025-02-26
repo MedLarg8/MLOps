@@ -1,3 +1,23 @@
+"""
+This module contains functions and processes related to the model pipeline for data analysis.
+
+It includes steps for data preprocessing, feature selection, and model training.
+The focus is on processing the dataset, selecting relevant features, and preparing the data for machine learning.
+
+Functions:
+- Data preprocessing: Cleans and prepares the dataset for modeling.
+- Feature selection: Chooses the most important features for training the model.
+- Model training: Trains a machine learning model on the processed data.
+
+Usage:
+1. Load the dataset into a pandas DataFrame.
+2. Apply preprocessing and feature selection functions.
+3. Train a model and evaluate its performance.
+
+Author: [Your Name]
+Date: [Date]
+"""
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -14,17 +34,18 @@ def load_data(file_path):
 
 def engineer_features(data):
     """Perform feature engineering."""
-    data['Total minutes'] = (data['Total day minutes'] + data['Total eve minutes']+ 
+    data['Total minutes'] = (data['Total day minutes'] + data['Total eve minutes']+
                              data['Total night minutes'] + data['Total intl minutes'])
-    data['Total charge'] = (data['Total day charge'] + data['Total eve charge']+ 
+    data['Total charge'] = (data['Total day charge'] + data['Total eve charge']+
                             data['Total night charge'] + data['Total intl charge'])
-    data['Total calls'] = (data['Total day calls'] + data['Total eve calls']+ 
+    data['Total calls'] = (data['Total day calls'] + data['Total eve calls']+
                            data['Total night calls'] + data['Total intl calls'])
     return data
 
 def preprocess_data(data):
     """Preprocess the data (encoding, scaling, etc.)."""
-    selected_features = ['Total minutes', 'Total charge', 'Total calls', 'International plan', 'Customer service calls']
+    selected_features = ['Total minutes', 'Total charge', 'Total calls',
+                         'International plan', 'Customer service calls']
     x = data[selected_features]
     y = data['Churn']
     # Handle categorical 'International plan' column
@@ -94,9 +115,9 @@ def print_metrics(accuracy, conf_matrix, class_report):
     print(f"Confusion Matrix:\n{conf_matrix}")
     print(f"Classification Report:\n{class_report}")
 
-def evaluate_model(model, x_test, y_test):
+def evaluate_model(model, X_test, y_test):
     """Evaluate the model and return metrics."""
-    y_pred = model.predict(x_test)
+    y_pred = model.predict(X_test)
     accuracy, conf_matrix, class_report = calculate_metrics(y_test, y_pred)
     print_metrics(accuracy, conf_matrix, class_report)
     return accuracy, conf_matrix, class_report
