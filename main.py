@@ -1,7 +1,7 @@
 import argparse
 import mlflow
 import mlflow.sklearn
-from model_pipeline import (
+from src.model_pipeline import (
     prepare_data,  # Use the prepare_data function directly
     train_decision_tree, evaluate_model, save_model, load_model, get_hyperparameters
 )
@@ -9,6 +9,12 @@ from model_pipeline import (
 def main():
     # Set the MLflow tracking URI to a local MLflow server
     mlflow.set_tracking_uri('http://localhost:5000')
+
+    # Create or set an experiment
+    experiment_name = "DecisionTreeExperiment"
+    if not mlflow.get_experiment_by_name(experiment_name):
+        mlflow.create_experiment(name=experiment_name)
+    mlflow.set_experiment(experiment_name)
 
     # Create an ArgumentParser object to handle command-line arguments
     parser = argparse.ArgumentParser()

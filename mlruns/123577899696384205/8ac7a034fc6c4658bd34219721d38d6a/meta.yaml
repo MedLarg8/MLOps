@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/123577899696384205/8ac7a034fc6c4658bd34219721d38d6a/artifacts
+end_time: 1740604891271
+entry_point_name: ''
+experiment_id: '123577899696384205'
+lifecycle_stage: active
+run_id: 8ac7a034fc6c4658bd34219721d38d6a
+run_name: defiant-tern-313
+run_uuid: 8ac7a034fc6c4658bd34219721d38d6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740604886829
+status: 3
+tags: []
+user_id: med

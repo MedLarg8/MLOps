@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/46582ede422c444fa7c4673533ff7afe/artifacts
+end_time: 1740604854676
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 46582ede422c444fa7c4673533ff7afe
+run_name: sassy-moose-194
+run_uuid: 46582ede422c444fa7c4673533ff7afe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740604849915
+status: 3
+tags: []
+user_id: med

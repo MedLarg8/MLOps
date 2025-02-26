@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/872864844824382542/ce557fc0f6804573a357d0e7c5d17f62/artifacts
+end_time: 1740605069554
+entry_point_name: ''
+experiment_id: '872864844824382542'
+lifecycle_stage: active
+run_id: ce557fc0f6804573a357d0e7c5d17f62
+run_name: bold-ant-594
+run_uuid: ce557fc0f6804573a357d0e7c5d17f62
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740605064784
+status: 3
+tags: []
+user_id: med
