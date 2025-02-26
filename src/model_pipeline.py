@@ -85,7 +85,8 @@ def preprocess_data(data):
 
 def split_data(x, y, test_size=0.2, random_state=42):
     """Split the data into training and testing sets."""
-    return train_test_split(x, y, test_size=test_size, random_state=random_state)
+    return train_test_split(x, y, test_size=test_size,
+                            random_state=random_state)
 
 
 def prepare_data(file_path):
@@ -122,7 +123,8 @@ def train_model(x_train, y_train, hyperparameters, random_state=42, cv=5):
     # Initialize GridSearchCV
     print("Initializing GridSearchCV...")
     grid_search = GridSearchCV(
-        estimator=model, param_grid=hyperparameters, cv=cv, n_jobs=-1, verbose=1
+        estimator=model, param_grid=hyperparameters, cv=cv, n_jobs=-1,
+        verbose=1
     )
     print("Starting GridSearchCV fitting...")
     grid_search.fit(x_train, y_train)
