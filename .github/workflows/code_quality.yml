@@ -55,5 +55,5 @@ jobs:
             Repository: ${{ github.repository }}
             Commit: ${{ github.sha }}
             Details: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: Rebhi.Ayoub@esprit.tn  # Replace with your email address
+          to: larg8med@gmail.com  # Replace with your email address
           from: GitHub Actions larg8med@gmail.com  # Replace with your email address
