@@ -2,7 +2,7 @@
 This module contains functions and processes related to the model
 pipeline for data analysis.
 
-It includes steps for data preprocessing, feature selection, and 
+It includes steps for data preprocessing, feature selection, and
 model training.
 The focus is on processing the dataset, selecting relevant features,
 and preparing the data
@@ -10,7 +10,7 @@ for machine learning.
 
 Functions:
 - Data preprocessing: Cleans and prepares the dataset for modeling.
-- Feature selection: Chooses the most important features for 
+- Feature selection: Chooses the most important features for
 training the model.
 - Model training: Trains a machine learning model on the processed data.
 
