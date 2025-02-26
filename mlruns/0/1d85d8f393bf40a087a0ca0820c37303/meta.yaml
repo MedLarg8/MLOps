@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/1d85d8f393bf40a087a0ca0820c37303/artifacts
+end_time: 1740571424933
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1d85d8f393bf40a087a0ca0820c37303
+run_name: mercurial-sheep-817
+run_uuid: 1d85d8f393bf40a087a0ca0820c37303
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740571420313
+status: 3
+tags: []
+user_id: med

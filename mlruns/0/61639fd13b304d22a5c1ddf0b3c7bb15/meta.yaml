@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/61639fd13b304d22a5c1ddf0b3c7bb15/artifacts
+end_time: 1739480739236
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 61639fd13b304d22a5c1ddf0b3c7bb15
+run_name: burly-bird-868
+run_uuid: 61639fd13b304d22a5c1ddf0b3c7bb15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739480734208
+status: 4
+tags: []
+user_id: med

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/657f04865478458688404ee28df49a6e/artifacts
+end_time: 1739480937620
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 657f04865478458688404ee28df49a6e
+run_name: entertaining-bee-586
+run_uuid: 657f04865478458688404ee28df49a6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739480933389
+status: 3
+tags: []
+user_id: med

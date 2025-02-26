@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/0abceda6fa9f400f9cd2c7197dd6f34a/artifacts
+end_time: 1740049423666
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0abceda6fa9f400f9cd2c7197dd6f34a
+run_name: awesome-doe-973
+run_uuid: 0abceda6fa9f400f9cd2c7197dd6f34a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740049419172
+status: 4
+tags: []
+user_id: med
