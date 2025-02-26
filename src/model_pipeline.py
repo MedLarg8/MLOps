@@ -42,30 +42,41 @@ def load_data(file_path):
 
 def engineer_features(data):
     """Perform feature engineering."""
-    data['Total minutes'] = (data['Total day minutes'] +
-                             data['Total eve minutes'] +
-                             data['Total night minutes'] +
-                             data['Total intl minutes'])
-    data['Total charge'] = (data['Total day charge'] +
-                            data['Total eve charge'] +
-                            data['Total night charge'] +
-                            data['Total intl charge'])
-    data['Total calls'] = (data['Total day calls'] +
-                           data['Total eve calls'] +
-                           data['Total night calls'] +
-                           data['Total intl calls'])
+    data["Total minutes"] = (
+        data["Total day minutes"]
+        + data["Total eve minutes"]
+        + data["Total night minutes"]
+        + data["Total intl minutes"]
+    )
+    data["Total charge"] = (
+        data["Total day charge"]
+        + data["Total eve charge"]
+        + data["Total night charge"]
+        + data["Total intl charge"]
+    )
+    data["Total calls"] = (
+        data["Total day calls"]
+        + data["Total eve calls"]
+        + data["Total night calls"]
+        + data["Total intl calls"]
+    )
     return data
 
 
 def preprocess_data(data):
     """Preprocess the data (encoding, scaling, etc.)."""
-    selected_features = ['Total minutes', 'Total charge', 'Total calls',
-                         'International plan', 'Customer service calls']
+    selected_features = [
+        "Total minutes",
+        "Total charge",
+        "Total calls",
+        "International plan",
+        "Customer service calls",
+    ]
     x = data[selected_features]
-    y = data['Churn']
+    y = data["Churn"]
     # Handle categorical 'International plan' column
     label_encoder = LabelEncoder()
-    int_plan = 'International plan'
+    int_plan = "International plan"
     x.loc[:, int_plan] = label_encoder.fit_transform(x[int_plan])
     scaler = StandardScaler()
     x_scaled = scaler.fit_transform(x)
@@ -74,8 +85,7 @@ def preprocess_data(data):
 
 def split_data(x, y, test_size=0.2, random_state=42):
     """Split the data into training and testing sets."""
-    return train_test_split(x, y, test_size=test_size,
-                            random_state=random_state)
+    return train_test_split(x, y, test_size=test_size, random_state=random_state)
 
 
 def prepare_data(file_path):
@@ -94,13 +104,13 @@ def prepare_data(file_path):
 def get_hyperparameters():
     """Return a dictionary of hyperparameters for GridSearchCV."""
     return {
-        'criterion': ['gini'],
-        'max_depth': [None],
-        'min_samples_split': [2],
-        'min_samples_leaf': [1],
-        'max_features': [None],
-        'splitter': ['best'],
-        'max_leaf_nodes': [20]
+        "criterion": ["gini"],
+        "max_depth": [None],
+        "min_samples_split": [2],
+        "min_samples_leaf": [1],
+        "max_features": [None],
+        "splitter": ["best"],
+        "max_leaf_nodes": [20],
     }
 
 
@@ -111,8 +121,9 @@ def train_model(x_train, y_train, hyperparameters, random_state=42, cv=5):
     print("Model initialized.")
     # Initialize GridSearchCV
     print("Initializing GridSearchCV...")
-    grid_search = GridSearchCV(estimator=model, param_grid=hyperparameters,
-                               cv=cv, n_jobs=-1, verbose=1)
+    grid_search = GridSearchCV(
+        estimator=model, param_grid=hyperparameters, cv=cv, n_jobs=-1, verbose=1
+    )
     print("Starting GridSearchCV fitting...")
     grid_search.fit(x_train, y_train)
     print("GridSearchCV fitting completed.")
@@ -154,9 +165,14 @@ def plot_confusion_matrix(conf_matrix):
     Plot a heatmap of the confusion matrix.
     """
     plt.figure(figsize=(8, 6))
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
-                xticklabels=["Not Churn", "Churn"],
-                yticklabels=["Not Churn", "Churn"])
+    sns.heatmap(
+        conf_matrix,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        xticklabels=["Not Churn", "Churn"],
+        yticklabels=["Not Churn", "Churn"],
+    )
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.title("Confusion Matrix - Decision Tree")
