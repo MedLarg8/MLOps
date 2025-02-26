@@ -90,7 +90,8 @@ def train_model(x_train, y_train, hyperparameters, random_state=42, cv=5):
     print("Model initialized.")
     # Initialize GridSearchCV
     print("Initializing GridSearchCV...")
-    grid_search = GridSearchCV(estimator=model, param_grid=hyperparameters, cv=cv, n_jobs=-1, verbose=1)
+    grid_search = GridSearchCV(estimator=model, param_grid=hyperparameters,
+                               cv=cv, n_jobs=-1, verbose=1)
     print("Starting GridSearchCV fitting...")
     grid_search.fit(x_train, y_train)
     print("GridSearchCV fitting completed.")
@@ -115,9 +116,9 @@ def print_metrics(accuracy, conf_matrix, class_report):
     print(f"Confusion Matrix:\n{conf_matrix}")
     print(f"Classification Report:\n{class_report}")
 
-def evaluate_model(model, X_test, y_test):
+def evaluate_model(model, x_test, y_test):
     """Evaluate the model and return metrics."""
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(x_test)
     accuracy, conf_matrix, class_report = calculate_metrics(y_test, y_pred)
     print_metrics(accuracy, conf_matrix, class_report)
     return accuracy, conf_matrix, class_report
@@ -127,7 +128,8 @@ def plot_confusion_matrix(conf_matrix):
     Plot a heatmap of the confusion matrix.
     """
     plt.figure(figsize=(8, 6))
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=["Not Churn", "Churn"], yticklabels=["Not Churn", "Churn"])
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
+                xticklabels=["Not Churn","Churn"],yticklabels=["Not Churn", "Churn"])
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.title("Confusion Matrix - Decision Tree")
