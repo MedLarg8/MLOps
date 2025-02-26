@@ -9,7 +9,7 @@ and preparing the data
 for machine learning.
 
 Functions:
-- Data preprocessing: Cleans and prepares the dataset for modeling.
+- Data preprocessing: Cleans annd prepares the dataset for modeling.
 - Feature selection: Chooses the most important features for
 training the model.
 - Model training: Trains a machine learning model on the processed data.
